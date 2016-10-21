@@ -1,0 +1,100 @@
+.dropdown {
+    position: relative;
+    background: transparent;
+    text-align: center;
+    z-index: 2;
+
+    & > .btn-default,
+    & > .btn-default:active,
+    & > .btn-default:hover {
+        background-color: transparent;
+        color: #fff;
+        outline: none;
+        box-shadow: none;
+    }
+
+    &.open {
+        & > .dropdown-toggle.btn-default,
+        & > .dropdown-toggle.btn-default.focus,
+        & > .dropdown-toggle.btn-default:active,
+        & > .dropdown-toggle.btn-default:focus,
+        & > .dropdown-toggle.btn-default:hover {
+            background-color: transparent;
+            color: #fff;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    button {
+        width: 100%;
+        background: transparent;
+        border: none;
+        position: relative;
+        z-index: 1;
+        padding: 12px 18px;
+        font-size: inherit;
+
+        span {}
+        @media (min-width:768px) {
+            padding: 18px 24px;
+        }
+    }
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        border-radius: 4px;
+        .transform(~  "translateZ(0)");
+        z-index: -1;
+    }
+
+    &:after {
+        .box-shadow(~  "0 4px 9px 0 rgba(1, 87, 155, 0.4)");
+        .transition(all .2s ease);
+        z-index: -1;
+    }
+
+    &:before {
+        background: #00b0ff;
+        .transition(all .25s ease);
+        z-index: 0;
+    }
+
+    .dropdown-menu {
+        &.files-list {
+            width: 90%;
+            right: 0;
+            padding: 0;
+            margin: -12px auto 0;
+            border: 1px solid #dfe7eb;
+            .box-shadow(~  "0 6px 12px 0 rgba(30, 41, 64, 0.15), 0 18px 20px 0 rgba(144, 202, 249, 0.17)");
+            overflow: hidden;
+
+            li {
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    padding: 18px;
+
+                    &:hover {
+                        background-color: #f8fbfd;
+                    }
+                }
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #dfe7eb;
+                }
+            }
+        }
+    }
+}
